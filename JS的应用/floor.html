@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div,body,ul,li{
+				padding: 0PX;
+				margin: 0px;
+			}
+			div{
+				width: auto;
+				height: 200px;
+			}
+			#f1{
+				background: red;
+			}
+			#f2{
+				background: yellow;
+			}
+			#f3{
+				background: black;
+			}
+			#f4{
+				background: gray;
+			}
+			#foot{
+				background:firebrick;
+			}
+			.menue1{
+				display: none;
+			}
+			.menue2{
+				display: block;	
+				position: fixed;
+				left: 20px;
+				top: 200px;
+				width: 40px;
+				height: 150px;
+				background:fuchsia;
+				cursor:pointer;
+			}
+			#menue ul{
+				list-style: none;
+				font-family: arial;
+				font-size: 15px;
+				position: fixed;
+				z-index: 3;
+				top: 200px;
+				left: 50px;
+				background-color: green;
+				display: none;
+			}
+			#menue ul li{
+				height: 25px;
+				line-height: 25px;
+				text-align: center;
+				position: fixed;
+				
+			}
+			.li{
+				
+			}
+
+		</style>
+	</head>
+	<script type="text/javascript">
+		var menue;
+		var li=new Array();
+		var f0,f1,f2,f3,f4,f5;
+		window.onload=function(){
+			menue=document.getElementById("menue");
+			f0=document.getElementById("f0");
+			f1=document.getElementById("f1");
+			f2=document.getElementById("f2");
+			f3=document.getElementById("f3");
+			f4=document.getElementById("f4");
+			f5=document.getElementById("f5");
+			li=[f0,f1.f2,f3,f4,f5]
+			setInterval(changecss,0.1);
+		}
+		function changecss(){
+			if(document.body.scrollTop<200){
+				menue.className="menue1";
+			}else{
+				menue.className="menue2";
+			}
+			
+		}
+	</script>
+	<body>
+		<div id="header"></div>
+		<div id="f1"></div>
+		<div id="f2"></div>
+		<div id="f3"></div>
+		<div id="f4"></div>
+		<div id="foot"></div>
+		<div id="menue">
+			<ul>
+				<li id="f-0"><a>head</a></li>
+				<li id="f-1"><a>f1</a></li>
+				<li id="f-2"><a>f2</a></li>
+				<li id="f-3"><a>f3</a></li>
+				<li id="f-4"><a>f4</a></li>
+				<li id="f-5"><a>foot</a></li>
+			</ul>
+		</div>
+	</body>
+</html>

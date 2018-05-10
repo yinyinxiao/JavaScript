@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	<div id="name1" style="border: 1px solid red;padding: 10px 10px;"></div>
+	<div id="name2" style="border: 1px solid green;padding: 10px 10px;"></div>
+	<div id="info"></div>
+	<script type="text/javascript">
+		var name1=document.getElementById("name1");
+		var name2=document.getElementById("name2");
+		var info=document.getElementById("info");
+		if(name1.attachEvent){
+			name1.attachEvent('onclick',function(){info.innerHTML+="红色"+"</br>"});
+			name2.attachEvent('onclick',function(){info.innerHTML+="绿色"+"</br>"});
+		}else{
+			name1.addEventListener('click',function(){info.innerHTML+="red"},false);
+			name2.addEventListener('click',function(){info.innerHTML+="green"},false);
+		}
+	</script>
+	</body>
+</html>

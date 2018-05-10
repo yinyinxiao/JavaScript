@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			Array.prototype.map=function(func){
+				var len=this.length;
+				if(type  func !="Function"){
+					throw new Error("argument should be a function!");
+				}
+				var res=[];
+			var obj=argument[1];
+			for(var i=0;i<len;i++){
+				res[i]=func.call(obj,this[i],i,this);
+			}
+			return res;
+			}
+			
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

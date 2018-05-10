@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		var txt,btn;
+		function $(i){
+			return document.getElementById(i);
+		}
+		window.onload=function (){
+			txt=$("txt");
+			btn=$("btn");
+			
+		}
+		function Btn(){
+			if(txt.value.length==0){
+				alert("null");
+			}
+		}
+	</script>
+	<body>
+		<input type="text" id="txt" />
+		<input type="button" id="btn" onclick="Btn()" value="按钮"/>
+	</body>
+</html>

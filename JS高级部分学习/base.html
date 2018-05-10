@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			
+		</script>
+		<script type="text/javascript"> 
+			function Base(){} //根抽象类 
+			Base.toBase=function(){ //将一个对象转化成Base类的实例的方法 
+				return new Base(); 
+			} 
+			Base.inherit=function(parent){ //用于继承Base类的实例的方法 
+				var F=function(){} 
+				F.prototype=parent; 
+				return new F; 
+			} 
+			Base.prototype.extend = function(prop){ //扩展根抽象类Base的extend方法 
+				for (var o in prop) { 
+					this[o] = prop[o]; 
+				} 
+			} 
+			Base.prototype.method = function(name, fn){ //扩展根抽象类Base的method方法 
+				this[name] = fn; 
+				return this; 
+			} 
+			var o=new Base(); //创建一个Base实例 
+			o.method("show",function(){ //给对象o添加show方法 
+				alert("show function"); 
+			}); 
+			o.extend({ //在给对象o添加name属性和say函数 
+				name:"shupersha", 
+				say:function(){ 
+					alert("say function") 
+				} 
+			}); 
+			var t=Base.inherit(o); //继承o对象的属性和方法 
+			t.show(); 
+			t.say(); 
+		</script>
+	</head>
+	<body>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			#main{
+				margin: 0 auto;
+				width: 500px;
+				border: 1px solid brown;
+				font-size: 15px;
+				font-family: "微软雅黑";
+				outline: none;
+			}
+			#main div{
+				width: 500px;
+				padding: 5px;
+				outline: none;
+			}
+			span{
+				display: inline-block;
+				width: 60px;
+				outline: none;
+			}
+			#exp{
+				outline: none;
+				height: 30px;
+				width: 300px;
+				font-size: 10px;
+			}
+			#cont{
+				outline: none;
+				height: 60px;
+				width: 300px;
+			}
+			#bt2 input{
+				display: inline-block;
+				background-color: rosybrown;
+				color: white;
+				width: 100px;
+				margin-left:150px;
+			}
+		</style>
+		<script type="text/javascript">
+			function valid(){
+				var chkG=document.getElementById("chkG");
+				var chkI=document.getElementById("chkI");
+				var chkM=document.getElementById("chkM");
+				
+				var cont=document.getElementById("cont");
+				var exp=document.getElementById("exp");
+				var bt2=document.getElementById("s");
+				var flags="";
+				if(chkG.checked){
+					flags+="g";
+				}
+				if(chkI.checked){
+					flags+="i";
+				}
+				if (chkM.checked) {
+					flags+="m";
+				}
+				var re=new RegExp(exp.value,flags);
+				var istrue=re.test(cont.value);
+				if (istrue) {
+					bt2.innerHTML="<font>验证成功</font>"
+					
+				} else{
+				bt2.innerHTML="<font>验证失败</font>"
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div>
+				<input type="checkbox" id="chkG" /><label for="chkG">全文检索</label>
+				<input type="checkbox" id="chkI" /><label for="chkI">不区分大小写</label>
+				<input type="checkbox" id="chkM" /><label for="chkM">按行检索</label>
+			</div>
+			<div>
+				<span>检索格式</span><input type="text" id="exp" />
+			</div>
+			<div>
+				<span>内&nbsp;容</span><textarea id="cont"></textarea>
+			</div>
+			<div id="bt2">
+				<input type="button" value="验证"  onclick="valid()"/><span id="s"></span>
+			</div>
+		</div>
+	</body>
+</html>

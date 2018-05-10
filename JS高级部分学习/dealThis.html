@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>liuyin</title>
+		<script type="text/javascript">
+			var name="I am window";
+			var obj={
+				name:"liuyin",
+				job:"student",
+				ftn1:function(obj){
+					obj.show();
+				},
+				ftn2:function(ftn){
+					ftn();
+				},
+				/*
+				 * 如果想把传入的函数对象里面的/this的指针指向外部字面量定义的对象，
+				 * 那么我们就是用apply和call
+				 */
+				ftn3:function(ftn){
+					ftn.call(this);
+				}
+			};
+			function Person(name){
+				this.name=name;
+				this.show=function(){
+					console.log("姓名："+this.name);
+					console.log(this);
+				}
+			}
+			
+			var p=new Person("person");
+			obj.ftn1(p);//传入的参数是new构造过的实例，this指向的是实例化对象的本身
+			
+			obj.ftn2(function(){//传入的是函数的别名，你么this指向的是window
+				console.log(this.name);
+				console.log(this);
+			});
+			obj.ftn3(function(){
+				console.log(this.name);
+				console.log(this);
+			});
+			
+		</script>
+	</head>
+	<body>
+	</body>
+	
+</html>

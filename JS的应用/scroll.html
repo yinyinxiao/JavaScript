@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			div,ul,li{
+				padding: 0px;
+				margin: 0px;
+				border:none;
+			}
+			#theOneInner{
+				width: 200px;
+				height: 300px;
+				background: greenyellow;
+				overflow: hidden;
+			}
+			#theTwo ul{
+				width: 200px;
+				height: 25px;
+				background-color: blanchedalmond;
+			}
+			#theTwo ul li{
+				width:50px;
+				height: 25px;
+				background-color: indianred;
+				list-style: none;
+				float: left;
+			}
+			.scroll{
+				width: 200px;
+				height: 300px;
+				background: yellowgreen;
+			}
+			.scroll ul{
+				width: 200px;
+				height: 30px;
+			}
+			.scroll ul li{
+				list-style: none;
+			float: left;
+			width: 50px;
+			height: 30px;
+			background: gray;
+			line-height: 25px;
+			}
+		</style>
+		<script type="text/javascript">
+			var theOne,theOneInner,interval;
+			window.onload=function (){
+				theOne=document.getElementById("theOne");
+				theOneInner=document.getElementById("theOneInner");
+				theOneInner.onmouseover=function(){
+					clearInterval(interval);
+				}
+				theOneInner.onmouseout=function(){
+					interval=setInterval(scrollA,80);
+				}
+				interval=setInterval(scrollA,80);
+			}
+			function scrollA(){
+				theOneInner.scrollTop++;
+				if(theOneInner.scrollTop>=theOne.offsetHeight)
+				{
+					theOneInner.scrollTop=theOne.scrollTop;	
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<div id="theTwo">
+				<ul>
+					<li>学号</li>
+					<li>姓名</li>
+					<li>班级</li>
+					<li>电话</li>
+				</ul>
+			</div>
+		<div id="theOne">
+			<div id="theOneInner">
+			<div class="scroll" id="first">
+				<ul id="scroll-1.1">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="scroll-1.2">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="scroll-1.3">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="scroll-1.4">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+			</div>
+			<div class="scroll" id="second">
+				<ul id="scroll-1.1">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="scroll-1.2">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="scroll-1.3">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="scroll-1.4">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+				<ul id="">
+					<li>24</li>
+					<li>刘银</li>
+					<li>24</li>
+					<li>4331</li>
+				</ul>
+			</div>
+			</div>
+		</div>
+	</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<script type="text/javascript">
+			//函数的原型
+			Array.prototype.map=function (func){
+				var len=this.length;
+				if(typeof func !="function"){
+					throw new Error("argument should be a function!");
+				}
+				var res=[];
+				for(var i;i<len;i++){
+					res[i]=func.call(obj,this[i],i,this);
+				}
+				return res;
+			}
+			function double(x){
+				return x*2;
+			}
+			[1,2,3].map(double);//[2.4.6]
+			
+			
+			//柯里化：就算是创建对象是存储的一个值，其实就是闭包中的一种问题
+			function a(a1){
+				return function(a2){
+					return a1+a2;
+				}
+			}
+			var x=new a(1);
+			var xresult=x(100);
+			var result2=x(50);
+			console.log(result2);
+			console.log(xresult);
+			
+			//作用域链
+			var head="head";
+			(function outter(){
+				var middle="middle";
+				(function inner(){
+					var bottom="bottom"
+					console.log(head);
+					console.log(middle);
+					console.log(bottom);
+				})();
+			})();
+		</script>
+	</head>
+	<body></body>
+</html>

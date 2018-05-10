@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>表单注册</title>
+		<style type="text/css">
+			#main{
+				border: 1px solid black;
+				margin:0 auto;
+				width :500px;
+			}
+			#mian p{
+				width: 450px;
+			}
+			#main p span{
+				display: inline-block;
+				width: 100px;
+				text-align: right;
+			}
+			input[type="text"],input[type="password"]{
+				width: 250px;
+				outline-color:goldenrod;
+			}
+			input[type="submit"]{
+				width: 150px;
+				display: block;
+				height: 30px;
+				background-color: green;
+				color: white;
+				outline:none;
+				position: relative;
+				left: 150px;
+			}
+		</style>
+			<script type="text/javascript">
+			var txtEmail,txtName,txtPwd,txtMobile,lableE,lableN,lableP,lableM;
+			function check(){
+				return checkBlack();
+			}
+			function $(i){
+				return document.getElementById(i);
+			}
+			window.onload=function(){
+				txtEmail=$("txtEmail");
+				txtName=$("txtName");
+				txtPwd=$("txtPwd");
+				txtMobile=$("txtMobile");
+				lableE=$("lableE");
+				lableM=$("lableM");
+				lableN=$("lableN");
+				lableP=$("lableP");
+			}
+			function checkBlack(){
+				lableE.innerHTML=lableM.innerHTML=lableN.innerHTML=lableP.innerHTML="";
+				var isTrue;
+				if (txtEmail.value.length==0){
+					lableE.innerHTML="<font style='font-size: 15px;color: red;'>Email不能为空</font>"
+					isTrue=false;
+				}
+				if (txtName.value.length==0){
+					lableN.innerHTML="<font style='font-size: 15px;color: red;'>姓名不能为空</font>"
+					isTrue=false;
+				}
+				if (txtPwd.value.length==0){
+					lableP.innerHTML="<font style='font-size: 15px;color: red;'>密码不能为空</font>"
+					isTrue=false;
+				}
+				if (txtMobile.value.length==0){
+					lableM.innerHTML="<font style='font-size: 15px;color: red;'>号码不能为空</font>"
+					isTrue=false;
+				}
+				return isTrue;
+			}
+			function checkE(){//邮件验证
+				lableE.innerHTML=" ";
+				var reg=/[A-Za-z0-9]+@[A-Za-z0-9]+.com/;
+				var regTrue=reg.test(txtEmail.value);
+				if(regTrue==false){
+					lableE.innerHTML="<font style='font-size: 15px;color: red;'>Email格式错误</font>"
+				}
+			}
+			function checkN(){//姓名验证
+				lableN.innerHTML=" ";
+				var reg=/^[\u4e00-\u9fa5][\u4e00-\u9fa5]*[\u4e00-\u9fa5]$/;
+				var regTrue=reg.test(txtName.value);
+					if(regTrue==false){
+					lableN.innerHTML="<font style='font-size: 15px;color: red;'>姓名格式错误</font>"
+				}
+			}
+			function checkP(){//密码验证
+				lableP.innerHTML=" ";
+				var reg=//;
+				var regTrue=reg.test(txtPwd.value);
+					if(regTrue==false){
+					lableP.innerHTML="<font style='font-size: 15px;color: red;'>密码格式错误</font>"
+				}
+			}
+			function checkM(){//电话号码验证
+				lableM.innerHTML=" ";
+				var reg=/^1[0-9]{10}/;
+				var regTrue=reg.test(txtMobile.value);
+					if(regTrue==false){
+					lableM.innerHTML="<font style='font-size: 15px;color: red;'>号码格式错误</font>"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form method="post" onsubmit="return check()">
+			<div id="main">
+				<p><span>Email：</span><input type="text" id="txtEmail" value="" onblur="checkE()"/>
+					<label id="lableE"></label>
+				</p>
+				<p><span>姓名：</span><input type="text" id="txtName" value="" onblur="checkN()"/>
+					<label id="lableN"></label>
+				</p>
+				<p><span>密码：</span><input type="password" id="txtPwd" value="" onblur="checkP()"/>
+					<label id="lableP"></label>
+				</p>
+				<p><span>电话：</span><input type="text" id="txtMobile" value="" onblur="checkM()"/>
+					<label id="lableM"></label>
+				</p>
+				<p><input type="submit"/></p>
+			</div>
+		</form>
+	</body>
+</html>

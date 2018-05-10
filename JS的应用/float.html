@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style type="text/css">
+			div html{
+				margin: 0px;
+				padding: 0px;
+			}
+			#div1{
+				width: 200px;
+				height: 200px;
+				position: absolute;
+				background-image: url(img/h.jpg);
+				border: none;
+			}
+		</style>
+		<script type="text/javascript">
+			var div1;
+			var change=1;
+			var divTop=divLeft=0.01;
+			//可视区的宽度和高度
+			var viewHeight,viewWidth;
+			//div的高度和宽度
+			var div1OffsetHeight,div1OffsetWidth;
+			//控制运行方向默认正方向
+			var x="+";
+			var y="+";
+			var intervall;
+			window.onload=function(){
+				div1=document.getElementById("div1");
+				div1OffsetHeight=div1.offsetHeight;
+				div1OffsetWidth=div1.offsetWidth;
+				div1.style.left=divLeft+"px";
+				div1.style.Top=divTop+"px";
+				div1.onmouseout=function(){
+					intervall=setInterval(floatDiv,0.01);
+				}
+				intervall=setInterval(floatDiv,0.01);
+			}
+			
+			function floatDiv(){
+				viewHeight=document.documentElement.clientHeight;
+				viewWidth=document.documentElement.clientWidth;
+				div1.onmouseover=function(){
+					clearInterval(intervall);
+				}
+				if(y=='+'){
+					if(x=='+'){
+						divTop+=change;
+						divLeft+=change;
+						if((divTop+div1OffsetHeight)>=viewHeight){
+						y="-";
+						}
+						if((divLeft+div1OffsetWidth)>=viewWidth){
+							x='-'
+						}
+					}
+					if(x=="-"){
+						divTop+=change;
+						divLeft-=change;
+						if(divLeft<=0){
+							x="+";
+						}
+						if((divTop+div1OffsetHeight)>=viewHeight){
+						y="-";
+					}
+					}
+					
+					
+				}
+				if(y=='-'){
+					if(x=="+"){
+						divTop-=change;
+						divLeft+=change;
+						if(divTop<=0){
+						y="+";
+					}
+						if((divLeft+div1OffsetWidth)>=viewWidth){
+							x='-'
+						}
+						
+					}
+			
+					if(x=="-"){
+						divTop-=change;
+						divLeft-=change;
+						if(divTop<=0){
+						y="+";
+					}
+						if(divLeft<=0){
+							x="+";
+					}
+					
+				}
+				}
+			
+				div1.style.left=divLeft+"px";
+				div1.style.top=divTop+"px";
+				
+			}
+			
+		</script>
+	</head>
+	<body>
+		<div id="div2" style="width: 10000px;">
+		</div>
+		<div id="div1"></div>
+	</body>
+</html>

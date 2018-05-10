@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>正则检测</title>
+		<style type="text/css">
+			#main{
+				font-size: 15px;
+				font-family:simsun;
+			margin: 0 auto;
+			width:450px;
+			border: 1px solid black;
+			}
+			#main div{
+				padding: 8px 5px;
+			}
+			#main span{
+				display: inline-block;
+				width:60px;
+				text-align: center;
+			}
+			#txtExp{
+				outline: none;
+				border: 1px solid grey;
+				width: 300px;
+				height: 30px;
+				line-height: 30px;
+			}
+			#txtCont{
+				border: 1px solid gray;
+				height: 85px;
+				width: 300px;
+				outline: none;
+			}
+			#btn{
+				text-align:center;
+				padding-right: 200px;
+
+			}
+			#btn input{
+				background-color: blue;
+				color: white;
+				height: 30px;
+				width: 125px;
+				outline: none;
+				border: 0px;
+				margin: 0px;
+				padding: 0;
+			}
+		</style>
+		<script type="text/javascript">
+			function validExp(){
+				var txtExp=document.getElementById("txtExp");
+				var txtCont=document.getElementById("txtCont");
+				var flags="";
+				var chkG=document.getElementById("chkG");
+				var chkI=document.getElementById("chkI");
+				var chkM=document.getElementById("chkM");
+				
+				if(chkG.checked){
+					flags+="g";
+				}
+				if (chkI.checked) {
+					flags+="i";
+				}
+				if (chkM.checked) {
+					flags+="m";
+				}
+				var reg=new RegExp(txtExp.value,flags);
+				var isTrue=reg.test(txtCont.value);
+				
+				var spMsg=document.getElementById("spMsg");
+				if (isTrue) {
+					spMsg.innerHTML="<font style='color: green;font-weight: bold;font-size: 5px;'>认证通过</font>";
+				} else{
+					spMsg.innerHTML="<font style='color: green;font-weight: bold;font-size:5px;'>认证失败</font>";
+				}
+				
+			}
+		</script>
+	</head>
+	<body>
+		<div id="main">
+			<div id="option">
+				<input type="checkbox"id="chkG"/><label for="chkG">全文搜索</label>
+				<input type="checkbox"id="chkI"/><label for="chkI">忽略大小写</label>
+				<input type="checkbox"id="chkM"/><label for="chkM">多行搜索</label>
+			</div>
+			<div></div>
+			<div id="">
+				<span>表达式</span><input type="text" id="txtExp" />
+			</div>
+			<div><span>内&nbsp;容</span><textarea id="txtCont"></textarea>
+			</div>
+			<div id="btn">
+				<input type="button" value="验证" onclick="validExp()"/><span id="spMsg"></span>
+			</div>
+		</div>
+	</body>
+</html>
