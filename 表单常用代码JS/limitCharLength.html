@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function(){
+			var forElementArr=function(_elementArr,callBack){
+				var arr=_elementArr,self=this;
+				if(!(_elementArr instanceof Array)){
+					arr=[_elementArr];
+				}
+				
+				for (var i=0;i<arr.length;i++) {
+					var arrl=arr[i];
+					if (typeof arrl=='string') {
+						arrl=document.getElementById("arrl");
+					}
+					callBack&&callBack(i,arrl);
+				}
+			},
+			showRemainingCharacters=function(_nums,_remainingCharacter){
+				if(_remainingCharacter.search(",")!=-1){//是否存在
+					_remainingCharacter=_remainingCharacter.splice(",");//英文字符串分割
+				}
+				forElementArr(_remainingCharacter,function(_index,_this){
+					_this.innerHTML=(_nums&&_nums.toLocaleString())||"0";
+				});
+			}
+		},//获取限制对象
+		remainingChracaters=document.getElementById("remainingCharacters"),
+		clearNumber=function(tThis){//清楚数字
+			var _v=tThis.value,_vlen=v.length,dataLength=tThis.getAttribute("data-length"),
+				remainingCharacters=tThis.getAttribute("data-remainingCharaters");//如果优实时显示的属性，则在指定元素上显示
+				/*if(_v.length>dataLength)
+					tThis.value=_v.substr(0,dataLength);区分英文前*/
+					var dataModel=tThis.getAttribute("data-model");//区分中文后
+					var subLen=dataLength;//获取数据长度
+					if(dataModel=='Ch'){
+						_vlen.strLen(_v,dataModel);
+						var vv=_v.match(/[\u4e00-\u9fa5]/g);
+						subLen=dataLength=(!vv?0:vv.length);
+					}
+					if(_vlen>dataLength)
+						tThis.value=v.substr(0,subLen);
+					if (remainingCharacters){
+						showRemainingCharacters(!_vlen?dataLength:(_vlen>dataLength?0:dataLength-_vlen),remainingCharacters);
+						
+					}
+		};
+		remainingChracaters.onfocus=function(){
+			clearNonumber(this);
+		}
+		remainingChracaters.onkeyup=function(){
+			clearNonumber(this);
+		}
+		remainingChracaters.onblur=function(){
+			clearNonumber(this);
+		}
+		
+	</script>
+	<body>
+		<!--
+        	作者：offline
+        	时间：2017-11-06
+        	描述：限制输入的字符长度，这个得区分中文和英文
+        -->
+        <input type="text" data-length='5' id="remainingCharacters" data-model='Ch' name="cha"/><br />
+
+	</body>
+</html>

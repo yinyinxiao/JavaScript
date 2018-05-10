@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		window.onload=function(){
+			var hibiden=document.getElementById("hibiden");
+			var hibiden2=document.getElementById("hibiden2");
+			hibiden.onfocus=function(){
+				hibiden.blur();
+			}
+			
+			var noText=function(){
+				hibiden2.value="";
+			};
+			hibiden2.onkeyup=hibiden2.onblur=noText;
+			
+			
+		}
+	</script>
+	<body>
+		<input type="text" value="禁止输入"  id="hibiden"/>
+		<input type="text" value="禁止输入" id="hibiden2"/>
+	</body>
+</html>

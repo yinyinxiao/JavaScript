@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<script type="text/javascript">
+		var txt,btn;
+		window.onload=function(){
+			txt=document.getElementById("str");
+			btn=document.getElementById("rstrBtn");
+			console.log(txt);
+			btn.onclick=function (){
+				txt.value=txt.value.replace(/^(\s|\u00A0)+|(\s|\u00A0)+$/g,"");
+			}
+		};
+		
+	</script>
+	<body>
+		<form>
+			<input type="text" id="str" value="     需要过滤空格   "/>
+		<input type="button" id="rstrBtn" value="过滤" />
+		</form>
+		
+	</body>
+</html>

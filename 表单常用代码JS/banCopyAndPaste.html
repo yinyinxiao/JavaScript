@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var banCopyPaste=document.getElementById("banCopyPase");
+			banCopyPaste.oncopy=function(){
+				return false;
+			}
+			banCopyPaste.onpaste=function(){
+				return false;
+			}
+			}
+			
+		</script>
+	</head>
+	<body>
+		<input type="text" name="banCopyPaste" id="banCopyPase" />
+	</body>
+</html>

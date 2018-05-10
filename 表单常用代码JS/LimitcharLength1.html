@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript">
+			window.onload=function(){
+				var limitLength=document.getElementById("limitLength"),
+					clearNonumber=function(tThis){
+						var _v=tThis.value,
+							_vlen=_v.length,
+							dataLength=tThis.getAttribute("data-length"),//获取长度属性
+							dataModel=tThis.getAttribute("data-model"),
+							sublen=dataLength;
+							if (_vlen>dataLength) {
+								tThis.value=_v.substr(0,sublen);
+							}
+							if (remainingChracaters) {
+								self.showRemainingCharacters(!_vlen?dataLength:(_vlen>
+								dataLength?0:dataLength-_vlen),remainingChracaters);
+							}
+					};
+					limitLength.onfocus=function(){
+						clearNonumber(this);
+					}
+					limitLength.onkeyup=function(){
+						clearNonumber(this);
+					}
+					limitLength.onblur=function(){
+						clearNonumber(this);
+					}
+			}
+		</script>
+	</head>
+	<body>
+			通过maxlength限制：<input type="text" name="Iname" maxlength="5"/><br />
+			通过js事件限制：<input type="text" data-length='5'id="limitLength" data-model='Ch'
+				name="Iname"/></br>
+	</body>
+</html>
+efe
